@@ -15,7 +15,7 @@ def saludar(request):
 
 def listar_estudiantes(request):
     contexto = {
-        'estudiantes': ['Lervin','Nazareno','Selva']
+        'estudiantes': Estudiante.objects.all()
     }
     return render(
         request=request,
