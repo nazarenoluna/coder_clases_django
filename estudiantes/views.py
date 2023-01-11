@@ -3,10 +3,10 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from estudiantes.models import Estudiante, Profesor
+from estudiantes.models import Estudiante, Profesor,Curso
 
 
-def saludar(request):
+def inicio(request):
     return render(
         request=request,
         template_name='estudiantes/inicio.html',
@@ -35,3 +35,12 @@ def listar_profesores(request):
     )
 
 
+def listar_cursos(request):
+    contexto = {
+        'cursos': Curso.objects.all()
+    }
+    return render(
+        request=request,
+        template_name='estudiantes/lista_cursos.html',
+        context=contexto,
+    )

@@ -1,9 +1,12 @@
 {% extends "estudiantes/base.html" %}
 
+{% block subtitulo %}Lista de profesores{% endblock subtitulo %}
+
 {% block contenido %}
-<section>
-  <div>
-    <h1>Lista de profesores</h1>
-  </div>
-</section>
+<h1>Lista de profesores</h1>
+<ul>
+{% for profesor in profesores %}
+  <li>{{ profesor.apellido }}, {{ profesor.nombre }}</li>
+{% endfor %}
+</ul>
 {% endblock contenido %}
